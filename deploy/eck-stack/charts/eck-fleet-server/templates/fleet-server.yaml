@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "fleet-server.labels" . | nindent 4 }}
   annotations:
-    eck.k8s.elastic.co/license: enterprise
+    eck.k8s.elastic.co/license: {{ .Values.licenseType | default "basic"  | quote }}
     {{- with .Values.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
